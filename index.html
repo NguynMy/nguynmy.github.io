@@ -10,10 +10,11 @@
             theme: {
                 extend: {
                     colors: {
-                        grey: {
-                            light: '#d0e3f0',
-                            DEFAULT: '#3B82F6',
-                            dark: '#1E40AF'
+                        lightblue: {
+                            lightest: '#e6f4ff',
+                            light: '#bae6fd',
+                            DEFAULT: '#7dd3fc',
+                            dark: '#38bdf8'
                         }
                     }
                 }
@@ -32,7 +33,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+<body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
     <div class="max-w-6xl w-full bg-white rounded-2xl shadow-lg overflow-hidden relative">
         <!-- Main container with proper padding -->
         <div class="p-8 md:p-12 flex flex-col md:flex-row items-center">
@@ -40,14 +41,14 @@
             <!-- Left side with circular image -->
             <div class="relative w-full md:w-1/2 mb-8 md:mb-0">
                 <div class="aspect-square relative">
-                    <!-- Blue circle border (changed from brown) -->
-                    <div class="absolute inset-0 rounded-full border-[20px] md:border-[30px] border-blue"></div>
+                    <!-- Light blue circle border -->
+                    <div class="absolute inset-0 rounded-full border-[20px] md:border-[30px] border-sky-300"></div>
                     
-                    <!-- Image container -->
+                    <!-- Image container with your cat image -->
                     <div class="absolute inset-[20px] md:inset-[30px] rounded-full overflow-hidden">
                         <img 
-                            src="/placeholder.svg?height=500&width=500" 
-                            alt="Portfolio owner working at desk" 
+                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-MsKv9VFZjSHWoXLHSm9rlVRLHBl9ID.png" 
+                            alt="Cute cat wearing a blue hat" 
                             class="w-full h-full object-cover"
                         >
                     </div>
@@ -57,33 +58,33 @@
             <!-- Right side with text content -->
             <div class="w-full md:w-1/2 md:pl-12">
                 <!-- Decorative circle -->
-                <div class="absolute top-12 right-1/2 md:right-auto md:left-1/2 w-16 h-16 rounded-full bg-blue-light opacity-70"></div>
+                <div class="absolute top-12 right-1/2 md:right-auto md:left-1/2 w-16 h-16 rounded-full bg-sky-100 opacity-70"></div>
                 
-                <!-- Portfolio heading - with blue color -->
-                <h1 class="heading text-4xl md:text-5xl lg:text-6xl font-bold text-blue-dark mb-6">
+                <!-- Portfolio heading -->
+                <h1 class="heading text-4xl md:text-5xl lg:text-6xl font-bold text-sky-500 mb-6">
                     Portfolio
                 </h1>
                 
-                <!-- Name - with blue color -->
-                <h2 class="heading text-3xl md:text-4xl lg:text-5xl font-bold text-blue-dark mb-4">
+                <!-- Name -->
+                <h2 class="heading text-3xl md:text-4xl lg:text-5xl font-bold text-sky-500 mb-4">
                     Nguyễn My
                 </h2>
                 
-                <!-- Role badge - with blue background -->
-                <div class="inline-block bg-blue text-white px-6 py-2 rounded-full text-lg mb-8">
+                <!-- Role badge -->
+                <div class="inline-block bg-sky-300 text-white px-6 py-2 rounded-full text-lg mb-8 shadow-sm">
                     Student
                 </div>
                 
                 <!-- Description -->
-                <p class="text-gray-700 leading-relaxed mb-6 max-w-lg">
-                    Hi, I'm My
+                <p class="text-gray-600 leading-relaxed mb-6 max-w-lg">
+                    Hi, I'm My. I'm 19 year olds.
                 </p>
             </div>
         </div>
         
-        <!-- Decorative elements - with blue colors -->
-        <div class="absolute bottom-4 left-8 w-20 h-20 rounded-full bg-blue-light opacity-70"></div>
-        <div class="absolute bottom-0 right-0 w-32 h-32 rounded-tl-full bg-blue opacity-80"></div>
+        <!-- Decorative elements -->
+        <div class="absolute bottom-4 left-8 w-20 h-20 rounded-full bg-sky-100 opacity-70"></div>
+        <div class="absolute bottom-0 right-0 w-32 h-32 rounded-tl-full bg-sky-200 opacity-80"></div>
     </div>
 </body>
 </html>
