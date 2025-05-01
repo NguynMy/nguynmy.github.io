@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn My - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lightblue: {
+                            lightest: '#e6f4ff',
+                            light: '#bae6fd',
+                            DEFAULT: '#7dd3fc',
+                            dark: '#38bdf8'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;500&display=swap');
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        .heading {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-6xl w-full bg-white rounded-2xl shadow-lg overflow-hidden relative">
+        <!-- Main container with proper padding -->
+        <div class="p-8 md:p-12 flex flex-col md:flex-row">
+            
+            <!-- Left side with circular image -->
+            <div class="relative w-full md:w-1/2 mb-8 md:mb-0 flex items-center justify-center">
+                <div class="aspect-square relative w-full max-w-md">
+                    <!-- Light blue circle border -->
+                    <div class="absolute inset-0 rounded-full border-[20px] md:border-[30px] border-sky-300"></div>
+                    
+                    <!-- Image container with your winter portrait -->
+                    <div class="absolute inset-[20px] md:inset-[30px] rounded-full overflow-hidden">
+                        <img 
+                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_1737970733127_1737971137906.jpg-2MMvdNTGmk3vSGw24uKNNR7DhFqMC0.jpeg" 
+                            alt="Person with umbrella in snow" 
+                            class="w-full h-full object-cover"
+                        >
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right side with text content - moved higher -->
+            <div class="w-full md:w-1/2 md:pl-12 flex flex-col md:pt-0">
+                <!-- Decorative circle -->
+                <div class="absolute top-12 right-1/2 md:right-auto md:left-1/2 w-16 h-16 rounded-full bg-sky-100 opacity-70"></div>
+                
+                <!-- Text content container - moved up -->
+                <div class="md:mt-0">
+                    <!-- Portfolio heading -->
+                    <h1 class="heading text-4xl md:text-5xl lg:text-6xl font-bold text-sky-500 mb-6">
+                        Portfolio
+                    </h1>
+                    
+                    <!-- Name -->
+                    <h2 class="heading text-3xl md:text-4xl lg:text-5xl font-bold text-sky-500 mb-4">
+                        Nguyễn My
+                    </h2>
+                    
+                    <!-- Role badge -->
+                    <div class="inline-block bg-sky-300 text-white px-6 py-2 rounded-full text-lg mb-8 shadow-sm">
+                        Student
+                    </div>
+                    
+                    <!-- Description -->
+                    <p class="text-gray-600 leading-relaxed mb-6 max-w-lg">
+                        Hello, my name is My. I am 19 years old and currently living in Gyeonggi, South Korea. I am an international student on a D4 visa.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative elements -->
+        <div class="absolute bottom-4 left-8 w-20 h-20 rounded-full bg-sky-100 opacity-70"></div>
+        <div class="absolute bottom-0 right-0 w-32 h-32 rounded-tl-full bg-sky-200 opacity-80"></div>
+    </div>
+</body>
+</html>
