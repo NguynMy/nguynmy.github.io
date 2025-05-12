@@ -7,12 +7,7 @@ import { ChevronDown } from "lucide-react"
 
 export default function PortfolioVertical() {
   const [activeSection, setActiveSection] = useState(0)
-  // Create refs for each section
-  const introRef = useRef<HTMLElement>(null)
-  const educationRef = useRef<HTMLElement>(null)
-  const skillsRef = useRef<HTMLElement>(null)
-
-  const sectionRefs = [introRef, educationRef, skillsRef]
+  const sectionRefs = [useRef(null), useRef(null), useRef(null)]
 
   // Handle scroll to update active section
   useEffect(() => {
@@ -22,7 +17,7 @@ export default function PortfolioVertical() {
 
       sectionRefs.forEach((ref, index) => {
         if (!ref.current) return
-        const element = ref.current
+        const element = ref.current as HTMLElement
         const offsetTop = element.offsetTop
         const height = element.offsetHeight
 
@@ -41,7 +36,7 @@ export default function PortfolioVertical() {
   // Scroll to section
   const scrollToSection = (index: number) => {
     if (!sectionRefs[index].current) return
-    const element = sectionRefs[index].current
+    const element = sectionRefs[index].current as HTMLElement
     window.scrollTo({
       top: element.offsetTop,
       behavior: "smooth",
@@ -72,7 +67,7 @@ export default function PortfolioVertical() {
 
       {/* Sections */}
       <section
-        ref={introRef}
+        ref={sectionRefs[0]}
         className="min-h-screen flex items-center justify-center p-6 relative bg-gradient-to-br from-blue-50 to-orange-50"
       >
         <IntroductionSection />
@@ -80,7 +75,7 @@ export default function PortfolioVertical() {
       </section>
 
       <section
-        ref={educationRef}
+        ref={sectionRefs[1]}
         className="min-h-screen flex items-center justify-center p-6 relative bg-gradient-to-bl from-blue-50 to-orange-50"
       >
         <EducationSection />
@@ -88,7 +83,7 @@ export default function PortfolioVertical() {
       </section>
 
       <section
-        ref={skillsRef}
+        ref={sectionRefs[2]}
         className="min-h-screen flex items-center justify-center p-6 relative bg-gradient-to-tr from-blue-50 to-orange-50"
       >
         <PersonalSkillsSection />
@@ -155,8 +150,8 @@ function IntroductionSection() {
               <div className="absolute inset-0 bg-white rounded-[5px]"></div>
             </div>
             <Image
-              src="./ảnh.png"
-              alt="Portrait"
+              src="./ảnh.jpg"
+              alt="Circle"
               fill
               className="object-cover rounded-md p-[2px]"
             />
@@ -233,20 +228,20 @@ function EducationSection() {
           {[
             {
               date: "7/2024",
-              description: "Finished graduation exam and started learning Korean",
+              description: "Kết thúc kì thi THPTQG, quyết định sang Hàn và bắt đầu học tiếng Hàn",
             },
             {
               date: "12/2024",
-              description: "Flew to South Korea and enrolled at Tongwon University",
+              description: "Bay sang Hàn và nhập học trường Tongwon",
             },
             {
               date: "2/2025",
               description:
-                "Accidentally came across Mr. Duy's video, thought about it and made the decision to study IT in the future",
+                "Khi còn đang mơ hồ về định hướng tương lai thì tình cờ lướt trúng lời khuyên của anh Duy và bắt đầu suy nghĩ rồi đưa ra quyết định về tương lai",
             },
             {
               date: "4/2025",
-              description: "Joined the basic programming class, taught by Mr. Duy with all his passion",
+              description: "Bắt đầu tham gia lớp học IT cơ bản",
             },
           ].map((edu, index) => (
             <div key={index} className="pb-6 pl-6 relative">
@@ -309,7 +304,7 @@ function PersonalSkillsSection() {
 
           <div className="space-y-6">
             <SkillBar name="Python" progress={25} status="Beginner" />
-            <SkillBar name="Design" progress={20} status="Beginner" />
+            <SkillBar name="HTML" progress={20} status="Beginner" />
           </div>
         </div>
 
