@@ -3,11 +3,11 @@
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, Target } from "lucide-react"
 
 export default function PortfolioVertical() {
   const [activeSection, setActiveSection] = useState(0)
-  const sectionRefs = [useRef(null), useRef(null), useRef(null)]
+  const sectionRefs = [useRef(null), useRef(null), useRef(null), useRef(null)]
 
   // Handle scroll to update active section
   useEffect(() => {
@@ -48,7 +48,7 @@ export default function PortfolioVertical() {
       {/* Fixed navigation */}
       <nav className="fixed right-6 top-1/2 transform -translate-y-1/2 z-50 hidden md:block">
         <div className="flex flex-col space-y-4">
-          {["Giới thiệu", "Học vấn", "Kỹ năng"].map((label, index) => (
+          {["Introduction", "Timeline", "Skills", "Goals"].map((label, index) => (
             <button
               key={index}
               onClick={() => scrollToSection(index)}
@@ -87,6 +87,14 @@ export default function PortfolioVertical() {
         className="min-h-screen flex items-center justify-center p-6 relative bg-gradient-to-tr from-blue-50 to-orange-50"
       >
         <PersonalSkillsSection />
+        <ScrollIndicator onClick={() => scrollToSection(3)} />
+      </section>
+
+      <section
+        ref={sectionRefs[3]}
+        className="min-h-screen flex items-center justify-center p-6 relative bg-gradient-to-br from-blue-50 to-orange-50"
+      >
+        <GoalsSection />
       </section>
     </div>
   )
@@ -97,7 +105,7 @@ function ScrollIndicator({ onClick }: { onClick: () => void }) {
     <button
       onClick={onClick}
       className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
-      aria-label="Cuộn xuống"
+      aria-label="Scroll down"
     >
       <ChevronDown className="w-8 h-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-orange-500" />
     </button>
@@ -163,7 +171,7 @@ function IntroductionSection() {
             </p>
             <p className="text-gray-600">
               Currently, I am studying Korean at Tongwon School on a D4 visa. Now I only have a TOPIK 2 certificate. At
-              the same time, I am taking a basic programming course taught by teacher Brad Duy.
+              the same time, I am taking a basic programming course.
             </p>
 
             <div className="mt-6 flex justify-center space-x-1">
@@ -228,20 +236,20 @@ function EducationSection() {
           {[
             {
               date: "7/2024",
-              description: "Kết thúc kì thi THPTQG, quyết định sang Hàn và bắt đầu học tiếng Hàn",
+              description:
+                "Completed high school national exams, decided to go to South Korea and started learning Korean",
             },
             {
               date: "12/2024",
-              description: "Bay sang Hàn và nhập học trường Tongwon",
+              description: "Flew to South Korea and enrolled at Tongwon School",
             },
             {
               date: "2/2025",
-              description:
-                "Khi còn đang mơ hồ về định hướng tương lai thì tình cờ lướt trúng lời khuyên của anh Duy và bắt đầu suy nghĩ rồi đưa ra quyết định về tương lai",
+              description: "Became interested in and started exploring the IT field",
             },
             {
               date: "4/2025",
-              description: "Bắt đầu tham gia lớp học IT cơ bản",
+              description: "Joined a basic IT course",
             },
           ].map((edu, index) => (
             <div key={index} className="pb-6 pl-6 relative">
@@ -332,6 +340,68 @@ function PersonalSkillsSection() {
           <div className="space-y-6">
             <SkillBar name="English" progress={40} status="Basic" />
             <SkillBar name="Korean" progress={30} status="TOPIK 2" />
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function GoalsSection() {
+  return (
+    <div className="relative w-full max-w-2xl mx-auto bg-white rounded-lg shadow-md overflow-hidden p-8">
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <svg
+          className="absolute top-0 left-0 w-full h-full"
+          viewBox="0 0 400 500"
+          preserveAspectRatio="none"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <linearGradient id="goalGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="rgba(59, 130, 246, 0.2)" />
+            <stop offset="100%" stopColor="rgba(249, 115, 22, 0.2)" />
+          </linearGradient>
+          <circle cx="350" cy="50" r="30" stroke="url(#goalGradient1)" strokeWidth="1" />
+          <circle cx="50" cy="350" r="30" stroke="url(#goalGradient1)" strokeWidth="1" />
+          <circle cx="350" cy="350" r="20" stroke="url(#goalGradient1)" strokeWidth="1" />
+          <circle cx="50" cy="50" r="20" stroke="url(#goalGradient1)" strokeWidth="1" />
+        </svg>
+      </div>
+
+      <div className="relative z-10">
+        <h2 className="text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-500">
+          Future Goals
+        </h2>
+
+        <div className="space-y-6">
+          <div className="bg-gradient-to-r from-blue-50 to-orange-50 rounded-lg p-6 border border-transparent">
+            <div className="flex items-center mb-3">
+              <Target className="w-5 h-5 mr-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-orange-500" />
+              <h3 className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-500">
+                Short-term Goals
+              </h3>
+            </div>
+            <ul className="list-disc list-inside space-y-2 text-gray-600">
+              <li>Improve my Korean language skills to TOPIK level 6</li>
+              <li>Complete the basic programming course</li>
+              <li>Improve my English to follow my dream in IT</li>
+            </ul>
+          </div>
+
+          <div className="bg-gradient-to-r from-blue-50 to-orange-50 rounded-lg p-6 border border-transparent">
+            <div className="flex items-center mb-3">
+              <Target className="w-5 h-5 mr-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-orange-500" />
+              <h3 className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-500">
+                Long-term Goals
+              </h3>
+            </div>
+            <ul className="list-disc list-inside space-y-2 text-gray-600">
+              <li>Pursue a degree in Computer Science or related field</li>
+              <li>Become proficient in back-end</li>
+              <li>Work for a technology company in South Korea</li>
+            </ul>
           </div>
         </div>
       </div>
